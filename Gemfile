@@ -1,17 +1,19 @@
 source 'https://rubygems.org'
-
 ruby '2.0.0'
+# This fixes our version of Ruby at 2.0.0 for local and Heroku
+
 gem 'rails', '3.2.13'
-gem 'jquery-rails'
-gem 'uglifier', '>= 1.0.3'
 
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :production do 
-	gem 'pg'
-end
+# We need the pg gem for Heroku (which is our production environment)
+# Heroku will automatically configure out config/database.yml file when we deploy
+gem 'pg', :group => :production
 
 group :development, :test do
   gem 'sqlite3'             # Heroku doesn't run sqlite3, but Postgres. However, we can use Postgres locally
+
 
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
@@ -31,6 +33,7 @@ group :development, :test do
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
 end
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -40,5 +43,24 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  
+  gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'jquery-rails'
+gem 'gmaps4rails'
+
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
