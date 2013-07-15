@@ -2,9 +2,9 @@ class WelcomeController < ApplicationController
 	def index
 
 		if params[:address]
-			local_stores=Gmaps4rails.places_for_address(params[:address], ENV["GOOG_API_KEY"], ENV["SEARCH"], 1000)
+			local_stores=Gmaps4rails.places_for_address(params[:address].to_s, ENV["GOOG_API_KEY"], "coffee -starbucks -dunkin -manger -hagen -daz", 1000)
 			local_stores.each do |store|
-				unless Store.where(latitude: store[:lat], longitude: store[:lng])
+				unless Store.where(latitude: store[:lat], longitude: store[:lng]).first
 					new_store = Store.new
 					new_store.name = store[:name]
 					new_store.address = store[:vicinity]

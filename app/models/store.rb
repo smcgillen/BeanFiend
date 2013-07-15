@@ -4,4 +4,8 @@ class Store < ActiveRecord::Base
 		#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
   		"#{self.address}"
 	end
+
+	def coordinates
+		return [self.latitude, self.longitude]
+	end
 end
