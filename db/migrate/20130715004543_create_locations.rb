@@ -1,8 +1,9 @@
 class CreateLocations < ActiveRecord::Migration
   def up
-  	create_table :locations do |t|
+  	create_table :stores do |t|
   		t.string :name
   		t.string :vicinity
+             t.string :address
   		t.float :latitude
   		t.float :longitude
   		t.boolean :gmaps
@@ -11,6 +12,6 @@ class CreateLocations < ActiveRecord::Migration
   end
 
   def down
-  	drop_table :locations
+  	drop_table :stores
   end
 end

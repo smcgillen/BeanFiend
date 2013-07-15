@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
 	def index
-
-		@json = Location.all.to_gmaps4rails	
+		@json = Store.all
 	end
 end
