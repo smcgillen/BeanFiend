@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20130715004543) do
 
   create_table "stores", :force => true do |t|
     t.string   "name"
-    t.string   "vicinity"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"

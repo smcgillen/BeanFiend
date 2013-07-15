@@ -1,2 +1,6 @@
 <%= gmaps4rails(@json) %>
-<%= @userLocation.inspect %>
+<form action = '/' method="post">
+	<input type="text", name="address">
+	<button>submit</button>
+</form>
+<%=ENV["SEARCH"]%>
