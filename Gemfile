@@ -31,6 +31,7 @@ group :development, :test do
                             # https://github.com/banister/binding_of_caller
   gem 'meta_request'        # Supporting gem for Rails Panel (Google Chrome extension for Rails development).
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
+  gem 'dotenv-rails'
 end
 
 
@@ -49,7 +50,7 @@ end
 gem 'jquery-rails'
 gem 'gmaps4rails'
 gem 'geocoder'
-gem 'dotenv'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
