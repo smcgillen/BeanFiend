@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
 	def index
-		Gmaps4rails.geocode("Caroline")
+
+		@json = Location.all.to_gmaps4rails	
 	end
 end
