@@ -9,6 +9,8 @@ class Store < ActiveRecord::Base
 		return [self.latitude, self.longitude]
 	end
 
+	has_many :reviews
+
 	reverse_geocoded_by :latitude, :longitude
 	after_validation :reverse_geocode  # auto-fetch address
 

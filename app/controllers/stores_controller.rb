@@ -25,6 +25,8 @@ class StoresController < ApplicationController
 
 	def show
 		@store = Store.find(params[:id])
+		@json = @store.to_gmaps4rails
 	end
+
 
 end

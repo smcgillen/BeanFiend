@@ -8,7 +8,7 @@
 		<%= submit_tag 'Find' %>
 	<% end %>
 	<% @stores.each do |store| %>
-		<%= store.name %><br />
+		<%= link_to store.name, store_path(store) %><br />
 	<% end %>
 <% else %>
 	<h2> Sign in or create an account to explore the wonderful coffee near you </h2>
