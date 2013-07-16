@@ -5,7 +5,8 @@ class StoresController < ApplicationController
 	end
 
 	def search
-		local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], params[:store].to_s || ENV["SEARCH"], 6000)
+		params[:store] = nil if params[:store] == ""
+		local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], (params[:store] || ENV["SEARCH"]), 6000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name])
 				new_store = Store.new

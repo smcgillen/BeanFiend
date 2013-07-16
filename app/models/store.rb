@@ -9,6 +9,14 @@ class Store < ActiveRecord::Base
 		return [self.latitude, self.longitude]
 	end
 
+	def gmaps4rails_infowindow
+		"<a href = 'store_path(#{self.id})'> #{self.name} </a> "
+  	end
+  
+	  def gmaps4rails_title
+	    "#{self.name}"
+	  end
+
 	has_many :reviews
 
 	reverse_geocoded_by :latitude, :longitude
