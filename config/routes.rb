@@ -5,6 +5,7 @@ BeanFiend::Application.routes.draw do
   root :to => "welcome#index"
   resources :stores
   resources :reviews
+  get "/users/:id" => "user#show", as: "user_profile"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
