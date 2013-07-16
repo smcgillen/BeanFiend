@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :name, :username, :location, :email, :password, :password_confirmation
-  has_many :reviews
 end
