@@ -3,7 +3,10 @@ BeanFiend::Application.routes.draw do
   devise_for :users
 
   root :to => "welcome#index"
-  resources :stores
+  
+  resources :stores, only: [:index]
+  post '/stores', to: 'stores#search', as: 'search'
+
   resources :reviews
   get "/users/:id" => "user#show", as: "user_profile"
   # The priority is based upon order of creation:
