@@ -1,4 +1,4 @@
 <h1>	<%= @store.name %> </h1>
 <h2><%= @store.address %> </h2>
 <%= gmaps4rails(@json) %>
-<%= render partial: '/reviews/review', collection: @store.reviews %>
+<%= render partial: '/reviews/review', collection: @store %>
