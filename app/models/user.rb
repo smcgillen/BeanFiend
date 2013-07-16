@@ -7,5 +7,12 @@ class User < ActiveRecord::Base
   attr_accessible :name, :username, :location, :email, :password, :password_confirmation
   has_many :reviews
 
+geocoded_by :address || request.ip         # can also be an IP address
+after_validation :geocode          # auto-fetch coordinates
+
+def address
+	self.location
+end
+
   ##validations##
 end

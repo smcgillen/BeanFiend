@@ -15,5 +15,6 @@ class StoresController < ApplicationController
 			end
 		end
 		@json = Store.all.to_gmaps4rails
+		@stores = Store.all 
 	end
 end
