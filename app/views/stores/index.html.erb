@@ -1,0 +1,9 @@
+<% if user_signed_in?%>
+	<%= gmaps4rails(@json) %>
+	<form action="index">
+		<form type="text" name="address" method="post">
+		<button>Find Coffee</button>
+	</form>
+<% else %>
+	<h2> Sign in or create an account to explore the wonderful coffee near you </h2>
+<% end %>

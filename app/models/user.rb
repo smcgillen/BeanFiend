@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :name, :username, :location, :email, :password, :password_confirmation
   has_many :reviews
+
+  ##validations##
 end

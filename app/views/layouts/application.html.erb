@@ -16,19 +16,18 @@
     <a class="brand" href="#">Bean Fiend</a>
     <ul class="nav">
       <li><a href="/">Home</a></li>
-	<li><a href="/locations">Coffee</a></li>
+	<li><a href="/stores">Coffee</a></li>
 	<% if user_signed_in? %>
 		<li><%= link_to("Profile", user_profile_path(current_user.id))%></li>
 		<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 	<%else %>
       		<li><%= link_to('Login', new_user_session_path)  %></li>
       	<%end%>
-
     </ul>
   </div>
 </div>
-<%= yield %>
 
+<%= yield %>
 <footer>
 	<%= yield :scripts %> 
 </footer>

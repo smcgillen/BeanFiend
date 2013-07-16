@@ -8,7 +8,7 @@ search = "coffee -starbucks -dunkin -manger -hagen -daz"
 namespace :defaultuser do 
 	task :addCafes => :environment do 
 
-		coffee = Gmaps4rails.places_for_address('Philadelphia, PA', ENV['GOOG_API_KEY'], "#{search}" , 7500)
+		coffee = Gmaps4rails.places_for_address('NYC, NY', ENV['GOOG_API_KEY'], "#{search}" , 7500)
 		coffee.each do |store|
 			new_store = Store.new
 			new_store.address = store[:vicinity]
