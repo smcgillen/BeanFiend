@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
       		:recoverable, :rememberable, :trackable, :validatable
-	attr_accessible :name, :username, :location, :email, :password, :password_confirmation, :remember_me, :subscriptions_attributes
+	attr_accessible :name, :username, :location, :email, :password, :address, :password_confirmation, :remember_me, :subscriptions_attributes
   
 	has_many :reviews
 
@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 	def address
 		self.location
 	end
+
 
   ##validations##
 end
