@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 	def index
 		if params[:query]
-			local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], ENV["SEARCH"], 5000)
+			local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], "coffee cafe -Starbucks -Dunkin -Donuts -Hagen -Daz -McDonalds -Pret",  5000)
 			local_stores.each do |store|
 				unless Store.where(latitude: store[:lat], longitude: store[:lng]).first
 					new_store = Store.new
