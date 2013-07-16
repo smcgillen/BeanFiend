@@ -1,16 +1,12 @@
 class StoresController < ApplicationController
 	def index
-		ip = ""
-		if request.location == "127.0.0.1"
-			ip = "208.185.23.206"
-		else
-			ip = request.location
-		end
-		@json = Store.near(Geocoder.coordinates(ip), 1.00).to_gmaps4rails
-		@stores = Store.near(Geocoder.coordinates(ip), 1.00)
+
+		ip = "208.185.23.206"
+		@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00)
+		@json = @stores.to_gmaps4rails
 		if @store == nil
-			Store.add_stores(Geocoder.address(ip))
-			@stores = Store.near(Geocoder.coordinates(ip), 1.00)
+			Store.add_stores(params[:address] || Geocoder.address(ip))
+			@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00)
 		end
 	end
 
