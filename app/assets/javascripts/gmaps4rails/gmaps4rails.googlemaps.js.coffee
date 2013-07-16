@@ -14,7 +14,7 @@ class @Gmaps4RailsGoogle extends Gmaps4Rails
 
     #markers + info styling
     @markers_conf =
-      clusterer_gridSize:      50
+      clusterer_gridSize:      20
       clusterer_maxZoom:       5
       custom_cluster_pictures: null
       custom_infowindow_class: null

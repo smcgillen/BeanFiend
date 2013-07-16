@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
 	def index
-
 		if params[:address]
 			local_stores=Gmaps4rails.places_for_address(params[:address].to_s, ENV["GOOG_API_KEY"], "coffee, cafe -'starbucks' -'dunkin' -'manger' -'hagen' -'daz'", 7500)
 			local_stores.each do |store|
@@ -15,7 +14,6 @@ class WelcomeController < ApplicationController
 				end
 			end
 		end
-
 		@json = Store.all.to_gmaps4rails
 
 	end
