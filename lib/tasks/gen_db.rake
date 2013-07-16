@@ -1,8 +1,3 @@
-require 'gmaps4rails'
-require 'rake'
-require 'dotenv-rails'
-Dotenv.load
-
 search = "coffee -starbucks -dunkin -manger -hagen -daz"
 
 namespace :defaultuser do 
