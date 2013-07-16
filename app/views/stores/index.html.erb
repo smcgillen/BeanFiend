@@ -1,9 +1,10 @@
 <% if user_signed_in?%>
 	<%= gmaps4rails(@json) %>
-	<form action="index">
-		<form type="text" name="address" method="post">
-		<button>Find Coffee</button>
-	</form>
+	<%= form_tag('/stores', method: "get") do%>
+		<%= text_field_tag :query %>
+		<%= submit_tag 'Find' %>
+	<% end %>
+
 	<%= Geocoder.coordinates(request.ip.to_s) %>
 <% else %>
 	<h2> Sign in or create an account to explore the wonderful coffee near you </h2>
