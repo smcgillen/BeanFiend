@@ -4,10 +4,12 @@ BeanFiend::Application.routes.draw do
 
   root :to => "welcome#index"
   
-  resources :stores, only: [:index]
+  resources :stores, only: [:index, :show]
   post '/stores', to: 'stores#search', as: 'search'
 
-  resources :reviews
+  resources :users, only: [:index, :show]
+
+  resources :reviews, only: [:index, :show]
   get "/users/:id" => "user#show", as: "user_profile"
   # The priority is based upon order of creation:
   # first created -> highest priority.
