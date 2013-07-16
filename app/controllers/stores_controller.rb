@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 	def index
 		if params[:query]
-			local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], "coffee, cafe -'starbucks' -'dunkin' -'manger' -'hagen' -'daz'", 2000)
+			local_stores=Gmaps4rails.places_for_address(params[:query].to_s, ENV["GOOG_API_KEY"], ENV["SEARCH"], 5000)
 			local_stores.each do |store|
 				unless Store.where(latitude: store[:lat], longitude: store[:lng]).first
 					new_store = Store.new
@@ -13,8 +13,12 @@ class StoresController < ApplicationController
 					new_store.save
 				end
 			end
+			@json = Store.near(Geocoder.coordinates(params[:query]), 1.00).to_gmaps4rails
+			@stores = Store.near(Geocoder.coordinates(params[:query]), 1.00)
+			@userLocation = Geocoder.coordinates(params[:query])
+		else 
+			@json = Store.near(Geocoder.coordinates(current_user.address || request.location), 1.00).to_gmaps4rails
+			@stores = Store.near(Geocoder.coordinates(current_user.address || request.location), 1.00)
 		end
-		@json = Store.all.to_gmaps4rails
-		@stores = Store.all 
 	end
 end

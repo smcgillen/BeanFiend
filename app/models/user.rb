@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :username, :location, :email, :password, :password_confirmation
   has_many :reviews
 
-geocoded_by :address || request.location         # can also be an IP address
+geocoded_by :address || request.ip         # can also be an IP address
 after_validation :geocode          # auto-fetch coordinates
+
+reverse_geocoded_by :latitude, :longitude
+after_validation :reverse_geocode  # auto-fetch address
 
 def address
 	self.location

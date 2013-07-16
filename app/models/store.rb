@@ -8,4 +8,8 @@ class Store < ActiveRecord::Base
 	def coordinates
 		return [self.latitude, self.longitude]
 	end
+
+	reverse_geocoded_by :latitude, :longitude
+	after_validation :reverse_geocode  # auto-fetch address
+
 end
