@@ -5,6 +5,9 @@
 		<%= text_field_tag :address %>
 		<%= submit_tag "Find Cafes" %>
 	<% end %>
+	<% if @stores.first == nil %>
+		<%= "couldn't find any" %>
+	<% end %>
 	<% @stores.each do |store| %>
 		<%= link_to store.name, store_path(store) %><br />
 	<% end %>

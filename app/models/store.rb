@@ -10,7 +10,7 @@ class Store < ActiveRecord::Base
 	end
 
 	def gmaps4rails_infowindow
-		"<a href = 'store_path(#{self.id})'> #{self.name} </a> "
+		"<a href = '/stores/#{(self.id)}'> #{self.name} </a> "
   	end
   
 	  def gmaps4rails_title
@@ -37,4 +37,19 @@ class Store < ActiveRecord::Base
 		end
 	end
 
+	def self.wide_search(address)
+		search_radius = 7000
+		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
+		while local_stores.first == nil
+			puts "no stores found"
+			sleep(0.75)
+			search_radius+=1000
+			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
+			return false if search_radius == 10000
+		end
+		local_stores.each do |store|
+			sleep(0.75)
+			add_stores(store[:vicinity])
+		end
+	end
 end
