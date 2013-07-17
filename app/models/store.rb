@@ -40,12 +40,11 @@ class Store < ActiveRecord::Base
 	def self.wide_search(address)
 		search_radius = 7000
 		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
-		while local_stores.first == nil
-			puts "no stores found"
+		while local_stores.first == nil 
 			sleep(0.75)
 			search_radius+=1000
 			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
-			return false if search_radius == 10000
+			return false if search_radius == 15000
 		end
 		local_stores.each do |store|
 			sleep(0.75)

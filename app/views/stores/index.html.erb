@@ -1,9 +1,16 @@
 <% if user_signed_in?%>
-	<%= gmaps4rails(@json) %>
+	<%= gmaps4rails(@json) %> <br />
 	<%= form_tag('/stores', method: "get") do%>
-		<%= label_tag "Input your address" %> <br />
-		<%= text_field_tag :address %>
+		<%= label_tag "Input your address" %>
+		<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY") %>
 		<%= submit_tag "Find Cafes" %>
+	<% end %>
+	<%= form_tag('/stores', method: "get") do%>
+		<%= label_tag "Input your address" %>
+		<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY")%>
+		<%= hidden_field_tag "wide_search", true %>
+		<%= submit_tag "Wide Search" %>
+		<%= "This could take a bit"  %>
 	<% end %>
 	<% if @stores.first == nil %>
 		<%= "couldn't find any" %>
