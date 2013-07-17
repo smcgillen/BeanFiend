@@ -1,4 +1,11 @@
 <h1>	<%= @store.name %> </h1>
 <h2><%= @store.address %> </h2>
 <%= gmaps4rails(@json) %>
-<%= render partial: '/reviews/review', collection: @store %>
+<h3> Reviews: </h3>
+<% if @store.reviews %>
+	<%= render partial: '/reviews/review', collection: @store.reviews %>
+<% else %>
+<h4> None Yet </h4>
+<% end %>
+
+<%= link_to "Write a Review", new_review_path(store_id: @store.id) %>

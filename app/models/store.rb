@@ -23,7 +23,7 @@ class Store < ActiveRecord::Base
 	after_validation :reverse_geocode  # auto-fetch address
 
 	def self.add_stores(user_address)
-		local_stores=Gmaps4rails.places_for_address(user_address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), 1000)
+		local_stores=Gmaps4rails.places_for_address(user_address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), 5000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name])
 				new_store = Store.new
