@@ -1,0 +1,7 @@
+<%= form_for @review do |f| %>
+	<% f.text_field :title %>
+	<% f.text_area :text %>
+	<% f.hidden_field :store, @store.id %>
+	<% f.hidden_field :user, current_user.id %>
+	<% f.submit "Post Review" %>
+<% end %>
