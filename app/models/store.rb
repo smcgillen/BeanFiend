@@ -10,7 +10,14 @@ class Store < ActiveRecord::Base
 	end
 
 	def gmaps4rails_infowindow
-		"<a href = '/stores/#{(self.id)}'> #{self.name} </a> "
+		if self.reviews == nil
+			count = 0
+		else
+			count = self.reviews.count
+		end
+		"<a href = '/stores/#{(self.id)}'> #{self.name} </a>
+		<p>#{self.address}</p>
+		<p>#{count} reviews</p>"
   	end
   
 	  def gmaps4rails_title
@@ -23,7 +30,7 @@ class Store < ActiveRecord::Base
 	after_validation :reverse_geocode  # auto-fetch address
 
 	def self.add_stores(user_address)
-		local_stores=Gmaps4rails.places_for_address(user_address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), 5000)
+		local_stores=Gmaps4rails.places_for_address(user_address, ENV["GOOG_API_KEY"], "coffee", 10000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name])
 				new_store = Store.new
@@ -39,11 +46,11 @@ class Store < ActiveRecord::Base
 
 	def self.wide_search(address)
 		search_radius = 7000
-		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
+		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
 		while local_stores.first == nil 
 			sleep(0.75)
 			search_radius+=1000
-			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], (ENV['SEARCH']), search_radius)
+			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
 			return false if search_radius == 15000
 		end
 		local_stores.each do |store|
