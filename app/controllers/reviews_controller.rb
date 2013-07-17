@@ -5,13 +5,13 @@ class ReviewsController < ApplicationController
 
 	def new
 		@store = Store.find(params[:store_id])
-		@review = Review.new
+		@review = Review.new(store: @store)
 	end
 
 	def create
 		@review = Review.new(params[:review])
 		if @review.save
-			redirect_to Store.find(@review.store.id)
+			redirect_to @review
 		else
 			render :new
 		end
