@@ -29,8 +29,8 @@ class Store < ActiveRecord::Base
 	reverse_geocoded_by :latitude, :longitude
 	after_validation :reverse_geocode  # auto-fetch address
 
-	def self.add_stores(user_address)
-		local_stores=Gmaps4rails.places_for_address(user_address, ENV["GOOG_API_KEY"], "coffee", 10000)
+	def self.add_stores(address)
+		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", 10000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name])
 				new_store = Store.new
@@ -47,14 +47,13 @@ class Store < ActiveRecord::Base
 	def self.wide_search(address)
 		search_radius = 7000
 		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
-		while local_stores.first == nil 
-			sleep(0.75)
+		while local_stores.first == nil || local_stores.count < 8
+			sleep(0.70)
 			search_radius+=1000
 			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
-			return false if search_radius == 15000
 		end
 		local_stores.each do |store|
-			sleep(0.75)
+			sleep(0.70)
 			add_stores(store[:vicinity])
 		end
 	end

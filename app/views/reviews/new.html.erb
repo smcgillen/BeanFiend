@@ -1,5 +1,18 @@
+<% if @review.errors %>
+	<h4> The following errors occurred: </h4>
+	<ul>
+		<% @review.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= form_for @review do |f| %>
+	<%= f.label :Title %>
 	<%= f.text_field :title %>
+	<%= f.label :Review %>
 	<%= f.text_area :text %>
+	<%= f.hidden_field :store_id, value: @store.id %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
 	<%= f.submit "Post Review" %>
 <% end %>

@@ -3,7 +3,7 @@ class StoresController < ApplicationController
 
 		ip = "208.185.23.206"
 		@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00)
-		@json = @stores.to_gmaps4rails
+		
 		if @stores.first == nil || @stores.size < 5 
 			begin
 				Store.add_stores(params[:address] || Geocoder.address(ip))
@@ -18,8 +18,9 @@ class StoresController < ApplicationController
 			rescue Exception => e
 				puts e
 			end
+			@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 5.00)
 		end
-		@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00)
+		@json = @stores.to_gmaps4rails
 	end
 
 	def show
