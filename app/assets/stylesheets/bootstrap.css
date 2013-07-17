@@ -68,7 +68,7 @@ audio:not([controls]) {
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%; 
 }
 
 a:focus {
@@ -223,6 +223,7 @@ textarea {
 
 body {
   margin: 0;
+  background:url('wavegrid.png');
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -738,12 +739,22 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  margin: 10px 0 10px 10px;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
-  color: inherit;
+  color: #8a8a8a;
   text-rendering: optimizelegibility;
+  transition: color 1s ease-in-out;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  color: #5d5d5d;
 }
 
 h1 small,
@@ -4373,13 +4384,7 @@ input[type="submit"].btn.btn-mini {
   min-height: 40px;
   padding-right: 20px;
   padding-left: 20px;
-  background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  background-repeat: repeat-x;
+  background-color: rgba(79, 50, 16, .60);
   border: 1px solid #d4d4d4;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -4418,12 +4423,15 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #777777;
-  text-shadow: 0 1px 0 #ffffff;
+  color: rgba(252, 255, 239, .60);
+  -webkit-transition: color 1s ease-in-out;
+  -moz-tranistion: color 1s ease-in-out;
+  transition: color 1s ease-in-out;
 }
 
 .navbar .brand:hover,
 .navbar .brand:focus {
+  color: white;
   text-decoration: none;
 }
 
@@ -4613,9 +4621,9 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
-  color: #777777;
+  color: rgba(252, 255, 239, .60);
   text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
+  transition: color 1s ease-in-out;
 }
 
 .navbar .nav .dropdown-toggle .caret {
@@ -4624,7 +4632,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #333333;
+  color: white;
   text-decoration: none;
   background-color: transparent;
 }

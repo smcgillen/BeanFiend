@@ -50,7 +50,7 @@ class @Gmaps4Rails
       #Marker config
       title: ""
       #MarkerImage config
-      picture : ""
+      picture : "http://dhzone.com/coffee/images/coffee-icon.png"
       width: 22
       length: 32
       draggable: false         # how to modify: <%= gmaps( "markers" => { "data" => @object.to_gmaps4rails, "options" => { "draggable" => true }}) %>
