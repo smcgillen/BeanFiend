@@ -9,7 +9,7 @@ BeanFiend::Application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :reviews, only: [:index, :show, :new]
+  resources :reviews, only: [:index, :show, :new, :create]
   get "/users/:id" => "user#show", as: "user_profile"
   # The priority is based upon order of creation:
   # first created -> highest priority.

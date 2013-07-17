@@ -9,6 +9,11 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-
-	end
+		@review = Review.new(params[:review])
+		if @review.save
+			redirect_to Store.find(@review.store.id)
+		else
+			render :new
+		end
+	end	
 end
