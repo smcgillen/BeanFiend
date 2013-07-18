@@ -616,8 +616,14 @@ a:focus {
 }
 
 .container {
+  background: rgba(255, 242, 216, .7);
+  border: 2px solid rgba(79, 50, 16, .10);
+  border-radius: 5px;
   margin-right: auto;
   margin-left: auto;
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
   *zoom: 1;
 }
 
