@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 	after_validation :reverse_geocode  # auto-fetch address
 
 	def address
-		self.location
+		Geocoder.address([self.latitude, self.longitude])
 	end
 
 
