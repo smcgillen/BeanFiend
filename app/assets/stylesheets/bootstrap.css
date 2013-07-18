@@ -51,6 +51,7 @@ hgroup,
 nav,
 section {
   display: block;
+  margin: 0 20px 0 20px;
 }
 
 audio,
@@ -223,7 +224,6 @@ textarea {
 
 body {
   margin: 0;
-  background:url('wavegrid.png');
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -232,14 +232,17 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: rgba(252, 255, 239, .60);
   text-decoration: none;
+  -webkit-transition: color 1s ease-in-out;
+  -moz-transition: color 1s ease-in-out
+  transition: color 1s ease-in-out
 }
 
 a:hover,
 a:focus {
-  color: #005580;
-  text-decoration: underline;
+  color: white;
+  text-decoration: none;
 }
 
 .img-rounded {
@@ -621,6 +624,7 @@ a:focus {
   border-radius: 5px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 40p;
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
@@ -664,6 +668,7 @@ p {
   font-size: 21px;
   font-weight: 200;
   line-height: 30px;
+  text-indent: 30px;
 }
 
 small {
@@ -745,7 +750,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0 10px 10px;
+  margin: 10px 0 10px 20px;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;

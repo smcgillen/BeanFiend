@@ -1,22 +1,45 @@
 <% if user_signed_in?%>
 	<%= gmaps4rails(@json) %> <br />
-	<%= form_tag('/stores', method: "get") do%>
-		<%= label_tag "Input your address" %>
-		<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY") %>
-		<%= submit_tag "Find Cafes" %>
-	<% end %>
-	<%= form_tag('/stores', method: "get") do%>
-		<%= label_tag "Input your address" %>
-		<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY")%>
-		<%= hidden_field_tag "wide_search", true %>
-		<%= submit_tag "Wide Search" %>
-		<%= "This could take a bit"  %>
-	<% end %>
+	<div class = "row-fluid">
+		<div class="span6" style="margin-left: 65px">
+			<%= form_tag('/stores', method: "get") do%>
+				<%= label_tag "Input your address" %>
+				<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY") %>
+				<%= submit_tag "Find Cafes" %>
+			<% end %>
+		</div> 
+		<div class "span6"></div>
+	</div>
+	<div class = "row-fluid">
+		<div class = "span6" style="margin-left: 65px">
+			<%= form_tag('/stores', method: "get") do%>
+				<%= label_tag "Input your address" %>
+				<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY")%>
+				<%= hidden_field_tag "wide_search", true %>
+				<%= submit_tag "Wide Search" %>
+				<%= "This could take a bit"  %>
+			<% end %>
+		</div>
+		<div class "span6"></div>
+	</div>
+
 	<% if @stores.first == nil %>
-		<%= "couldn't find any" %>
+	<div class= "row-fluid">
+		<div class ="span6 store" style = "margin-left: 65px">
+			<%= "couldn't find any" %>
+		</div>
+	</div>
 	<% end %>
+
 	<% @stores.each do |store| %>
-		<%= link_to store.name, store_path(store) %><br />
+		<div class = "row-fluid">
+			<div class = "span6 store" style = "margin-left: 65px">
+				<%= link_to store.name, store_path(store) %> <br />
+			</div>
+			<div class = "span4 store" style = "margin-left: 50px">
+				<p><%=link_to "#{store.reviews.count} Reviews", store_path(store) %> </p>
+			</div>
+		</div>
 	<% end %>
 <% else %>
 	<h2> Sign in or create an account to explore the wonderful coffee near you </h2>
