@@ -50,13 +50,13 @@ class Store < ActiveRecord::Base
 		search_radius = 7000
 		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
 		while local_stores.first == nil || local_stores.count < 8
-			sleep(0.70)
 			search_radius+=1000
 			local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
+			sleep(1.0)
 		end
 		local_stores.each do |store|
-			sleep(0.70)
 			add_stores(store[:vicinity])
+			sleep(1.0)
 		end
 	end
 end

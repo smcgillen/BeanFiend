@@ -2,16 +2,16 @@
 <h2><%= @store.address %> </h2>
 <%= gmaps4rails(@json) %>
 <h3> Reviews: </h3>
-<% if @store.reviews %>
+<% if @store.reviews.first %>
 	<%= render partial: '/reviews/review', collection: @store.reviews %>
 <% else %>
-<h4> None Yet </h4>
+	<h4> No Reviews for this Café Yet </h4>
 <% end %>
 
 <p style="margin-left: 50px">
 <% if current_user %>
-	<%= link_to "Write a Review", new_review_path(store_id: @store.id)%>
+	<h4><%= link_to "Write a Review", new_review_path(store_id: @store.id)%></h4>
 <% else %>
-	<%= button_to "Sign up to write a Review", new_user_registration_path %>
+	<%= button_to "Sign up to write a Review", new_user_registration_path, method: :get, style: "margin-left: 40px"%>
 <% end %>
 </p>
