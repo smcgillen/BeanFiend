@@ -11,20 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718163121) do
+ActiveRecord::Schema.define(:version => 20130718225309) do
 
   create_table "reviews", :force => true do |t|
     t.string   "title"
-    t.string   "text"
+    t.text     "text",       :limit => 255
     t.integer  "store_id"
     t.integer  "user_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "noise",      :default => 5
-    t.integer  "people",     :default => 5
-    t.integer  "wifi",       :default => 5
-    t.integer  "price",      :default => 5
-    t.integer  "coffee",     :default => 5
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "noise",                     :default => 5
+    t.integer  "people",                    :default => 5
+    t.integer  "wifi",                      :default => 5
+    t.integer  "price",                     :default => 5
+    t.integer  "coffee",                    :default => 5
   end
 
   create_table "stores", :force => true do |t|

@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
+		raise
 		@store = Store.find(params[:review][:store_id])
 		@review = Review.new(params[:review])
 		if @review.save
