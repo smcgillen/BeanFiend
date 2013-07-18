@@ -1,16 +1,19 @@
 .slide {
-	width: 400px;
+	width: 800px;
+	margin:;
 }
 
 .review_box_slider {
-	width: 420px;
-	height: 50px;
+	width: 800px;
+	height: 35px;
 	background: rgba(79, 50, 16, .5);
 	border: 2px solid rgba(79, 50, 16, .10);
 	-webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
 	-moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
 	box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
-	margin: 10px 0 10px 80px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding: 15px;
 	border-radius: 5px;
 }
@@ -43,4 +46,8 @@
 
 form{
 	display: inline-block;
+}
+
+.review_form_submit {
+	margin-left: 65px;
 }
