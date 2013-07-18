@@ -14,4 +14,29 @@ class ReviewsController < ApplicationController
 			render :new
 		end
 	end	
+
+	def show
+		@review = Review.find(params[:id])
+	end
+
+	def edit
+		@review = Review.find(params[:id])
+		@store = @review.store
+	end
+
+	def update
+		@review =  Review.find(params[:id])
+		if @review.update_attributes(params[:review])
+			redirect_to @review.store
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		store = Review.find(params[:id]).store
+		Review.find(params[:id]).destroy
+		redirect_to store
+	end
+
 end

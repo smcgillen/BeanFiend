@@ -1,11 +1,12 @@
 <% if review %>
+	<h3 style="color: black; margin-left: 50px"><%= link_to review.title, review_path(review) %></h3>
 	<div class="review_box">
-			<div class="review_title">
-				<h3 style="color: black"><%= review.title %></h3>
-			</div>
 			<p><%= review.text %></p>
 			<% if current_user.reviews.include?(review) %>
-				<a href="#">Edit Review</a>
+				<div class = "edit_buttons">
+					<%= button_to "Edit Review", edit_review_path(review), method: :get%>
+					<%= button_to "Delete Review", review_path(review), method: :delete%>
+				</div>
 			<% end %>
 	</div>
 <% end %>

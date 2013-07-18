@@ -33,14 +33,14 @@
 	padding-bottom: 10px;
 }
 
-.review_box .review_title {
-	background: rgba(79, 50, 16, .1);
-	border-bottom: 1px solid black;
-	margin-bottom: 5px;
-}
-
 .review_box p {
-	margin-left: 40px;
+	padding: 10px;
 }
 
+.edit_buttons {
+	float: right;
+}
 
+form{
+	display: inline-block;
+}
