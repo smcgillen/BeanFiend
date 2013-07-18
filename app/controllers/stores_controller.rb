@@ -1,8 +1,8 @@
 class StoresController < ApplicationController
 	def index
-		ip = request.location.ip
-		if ip == "127.0.0.1"
-			ip = "208.185.23.206"
+		@ip = request.location.ip
+		if @ip == "127.0.0.1"
+			@ip = "208.185.23.206"
 		end
 		@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00).paginate(:page => params[:page], :per_page => 10)
 		if @stores.first == nil || @stores.size < 5 
