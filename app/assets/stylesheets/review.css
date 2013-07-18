@@ -1,0 +1,46 @@
+.slide {
+	width: 400px;
+}
+
+.review_box_slider {
+	width: 420px;
+	height: 50px;
+	background: rgba(79, 50, 16, .5);
+	border: 2px solid rgba(79, 50, 16, .10);
+	-webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+	-moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+	box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
+	margin: 10px 0 10px 80px;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.review_form {
+	margin-left: 40px;
+}
+
+.review_form_all {
+	margin: 20px 0px 20px 50px;
+}
+
+.reviews_slider_box {
+	margin-top: 20px;
+}
+.review_box {
+	width: 800px;
+	margin: 10px 0 10px 65px;
+	background: rgba(79, 50, 16, .5);
+	padding-bottom: 10px;
+}
+
+.review_box .review_title {
+	background: rgba(79, 50, 16, .1);
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+}
+
+.review_box p {
+	margin-left: 40px;
+}
+
+

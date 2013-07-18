@@ -1,4 +1,11 @@
 <% if review %>
-	<div class = "review"><h3><%= review.title %><br /></h3>
-	<%= review.text %><br /></div>
+	<div class="review_box">
+			<div class="review_title">
+				<h3 style="color: black"><%= review.title %></h3>
+			</div>
+			<p><%= review.text %></p>
+			<% if current_user.reviews.include?(review) %>
+				<a href="#">Edit Review</a>
+			<% end %>
+	</div>
 <% end %>

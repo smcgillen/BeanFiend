@@ -1,18 +1,47 @@
-<% if @review.errors %>
+<% if @review.errors.first %>
 	<h4> The following errors occurred: </h4>
 	<ul>
 		<% @review.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
+			<strong class="error"><%= msg %></strong><br />
 		<% end %>
 	</ul>
 <% end %>
-
 <%= form_for @review do |f| %>
-	<%= f.label :Title %>
-	<%= f.text_field :title %>
-	<%= f.label :Review %>
-	<%= f.text_area :text %>
-	<%= f.hidden_field :store_id, value: @store.id %>
-	<%= f.hidden_field :user_id, value: current_user.id %>
-	<%= f.submit "Post Review" %>
+
+	<div class="row-fluid review_form_all">
+		<h2> Review For <%=@store.name%></h2>
+		<div class="span3 review_form">
+			<%= f.label :Title %>
+			<%= f.text_field :title %>
+			<%= f.label :Review %>
+			<%= f.text_area :text %>
+			<%= f.hidden_field :store_id, value: @store.id %>
+			<%= f.hidden_field :user_id, value: current_user.id %>
+		</div>
+		<div class="span6 reviews_slider_box">
+			<div class="review_box_slider">
+				<%= f.label :Noise %>
+				<%= f.range_field :noise, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+			</div>
+			<div class="review_box_slider">
+				<%= f.label :People %>
+				<%= f.range_field :people, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+			</div>
+			<div class="review_box_slider">
+				<%= f.label :Wifi %>
+				<%= f.range_field :wifi, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+			</div>
+			<div class="review_box_slider">
+				<%= f.label :Price %>
+				<%= f.range_field :price, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+			</div>
+			<div class="review_box_slider">
+				<%= f.label :Coffee %>
+				<%= f.range_field :coffee, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+			</div>
+
+		</div>
+	</div>
+	
+	<%=f.submit %>
 <% end %>
