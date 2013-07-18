@@ -19,3 +19,12 @@
 .store a:hover {
 	color: white;
 }
+
+.pagination {
+	margin-left: 60px;
+	float: none;
+}
+
+.pagination a, .pagination .current {
+	background: rgba(100, 100, 100, 0.3);
+}

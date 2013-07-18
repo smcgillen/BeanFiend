@@ -31,7 +31,7 @@
 	</div>
 	<% end %>
 
-	<% @stores.each do |store| %>
-		<%= render @stores %>
-	<% end %>
 
+	
+		<%= render @stores %>
+	<%= will_paginate @stores%>

@@ -5,6 +5,8 @@ class Store < ActiveRecord::Base
   		"#{self.address}"
 	end
 
+	self.per_page = 10
+
 	def coordinates
 		return [self.latitude, self.longitude]
 	end
