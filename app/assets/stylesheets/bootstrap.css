@@ -147,7 +147,7 @@ input[type="submit"] {
   color: black;
   border: none;
   border-radius: 5px;
-  border: 1px solid rgba(127, 93, 53, 1);;
+  border: 1px solid rgba(127, 93, 53, 1);
   -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1)!important;
   -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1)!important;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1)!important;
@@ -649,7 +649,7 @@ a:focus {
   background: rgba(255, 242, 216, .7);
   border: 2px solid rgba(79, 50, 16, .10);
   border-radius: 5px;
-  margin: -15px auto 100px auto;
+  margin: 30px auto 100px auto;
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
@@ -1138,7 +1138,7 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 20px;
+  height: 30px;
   padding: 4px 6px;
   margin-bottom: 10px;
   font-size: 14px;
@@ -1176,8 +1176,8 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  background-color: #f9f0dd;
+  border: 1px solid #aaaaaa;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1203,14 +1203,15 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-  border-color: rgba(82, 168, 236, 0.8);
+  border-color: rgba(127, 93, 53, 1);
+  background: rgba(255, 246, 227, .9);
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
 
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(127, 93, 53, .6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(127, 93, 53, .6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(127, 93, 53, .6);
 }
 
 input[type="radio"],
