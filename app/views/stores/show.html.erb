@@ -8,4 +8,8 @@
 <h4> None Yet </h4>
 <% end %>
 
-<%= link_to "Write a Review", new_review_path(store_id: @store.id) %>
+<% if current_user %>
+	<%= link_to "Write a Review", new_review_path(store_id: @store.id) %>
+<% else %>
+	<%= link_to "Sign up to write a Review", new_user_registration_path %>
+<% end %>

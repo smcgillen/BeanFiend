@@ -1,4 +1,4 @@
-<% if user_signed_in?%>
+
 	<%= gmaps4rails(@json) %> <br />
 	<div class = "row-fluid">
 		<div class="span6" style="margin-left: 65px">
@@ -32,15 +32,6 @@
 	<% end %>
 
 	<% @stores.each do |store| %>
-		<div class = "row-fluid">
-			<div class = "span6 store" style = "margin-left: 65px">
-				<%= link_to store.name, store_path(store) %> <br />
-			</div>
-			<div class = "span4 store" style = "margin-left: 50px">
-				<p><%=link_to "#{store.reviews.count} Reviews", store_path(store) %> </p>
-			</div>
-		</div>
+		<%= render @stores %>
 	<% end %>
-<% else %>
-	<h2> Sign in or create an account to explore the wonderful coffee near you </h2>
-<% end %>
+

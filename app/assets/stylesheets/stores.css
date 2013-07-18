@@ -1,0 +1,21 @@
+.store {
+	height: 50px;
+	color: rgba(252, 255, 239, .60);
+	background-color: rgba(79, 50, 16, .60);
+	border-radius: 5px;
+	margin: 10px 0 0 10px;
+	 -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+ 	 -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
+  	box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
+  	-webkit-transition: margin-left 1s ease-in-out;
+  	-moz-transition: margin-left 1s ease-in-out;
+  	transition: margin-left 1s ease-in-out;
+}
+.store a {
+	color: rgba(252, 255, 239, .60);
+	padding: 7px;
+}
+
+.store a:hover {
+	color: white;
+}

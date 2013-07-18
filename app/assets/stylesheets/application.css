@@ -20,19 +20,20 @@
 	color: rgba(252, 255, 239, .60);
 }
 
-.store {
+.logo {
 	height: 50px;
-	background-color: rgba(79, 50, 16, .7);
-	border-radius: 5px;
-	margin: 10px 0 0 10px;
-	 -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
- 	 -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
-  	box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
-  	-webkit-transition: margin-left 1s ease-in-out;
-  	-moz-transition: margin-left 1s ease-in-out;
-  	transition: margin-left 1s ease-in-out;
+	width: 220px;
+	margin: 5px 10px 0 10px;
+	overflow:hidden;
+	position: absolute;
 }
 
-.store:hover {
-	margin-left: 70px;
+.logo img {
+	height: 170px;
+	width: 220px;
 }
+
+.logo img:hover {
+	margin-top: -50px;
+}
+

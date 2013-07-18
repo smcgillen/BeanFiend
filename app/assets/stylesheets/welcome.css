@@ -1,0 +1,15 @@
+.title_image {
+	height: 200px;
+	width: 300px;
+	float: right;
+	border-radius: 5px;
+	margin: 0 0 20px 10px;
+	opacity: .7;
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+}
+
+.title_image:hover {
+	opacity: 1;
+}

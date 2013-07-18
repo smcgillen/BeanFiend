@@ -3,19 +3,18 @@
 <head>
   <title>BeanFiend</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "bootstrap" %>
-  <%= stylesheet_link_tag 'gmaps4rails' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
 <body>
-<head>
     <div class="navbar">
+      <div class = "logo"><%= link_to image_tag("Bean_Fiend_logo.png"), root_url %></div>
+
       <div class="navbar-inner">
-        <%=link_to "Bean Fiend", root_url, class: "brand" %>
+
         <ul class="nav">
-          <li><%= link_to "Coffee", stores_path%></li>
+                <li><%= link_to "Coffee", stores_path%></li>
           <% if current_user %>
                 <li><%= link_to "Profile", user_path(id: current_user.id)%></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

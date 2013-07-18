@@ -11,6 +11,8 @@ gem 'rails', '3.2.13'
 # Heroku will automatically configure out config/database.yml file when we deploy
 gem 'pg', :group => :production
 
+gem 'will_paginate', '~> 3.0'
+
 group :development, :test do
   gem 'sqlite3'             # Heroku doesn't run sqlite3, but Postgres. However, we can use Postgres locally
 
