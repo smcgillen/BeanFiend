@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(:version => 20130718163121) do
     t.string   "text"
     t.integer  "store_id"
     t.integer  "user_id"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.integer  "noise",      :limit => 10, :default => 5
-    t.integer  "people",     :limit => 10, :default => 5
-    t.integer  "wifi",       :limit => 10, :default => 5
-    t.integer  "price",      :limit => 10, :default => 5
-    t.integer  "coffee",     :limit => 10, :default => 5
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "noise",      :default => 5
+    t.integer  "people",     :default => 5
+    t.integer  "wifi",       :default => 5
+    t.integer  "price",      :default => 5
+    t.integer  "coffee",     :default => 5
   end
 
   create_table "stores", :force => true do |t|
