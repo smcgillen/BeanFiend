@@ -2,14 +2,16 @@
 	height: 200px;
 	width: 300px;
 	float: right;
-	border-radius: 5px;
+	border: 1px solid rgba(121, 102, 81, 0.5);
+	border-radius: 3px;
 	margin: 0 0 20px 10px;
 	opacity: .7;
-	-webkit-transition: opacity 1s ease-in-out;
-	-moz-transition: opacity 1s ease-in-out;
-	transition: opacity 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 .title_image:hover {
 	opacity: 1;
+	border: 1px solid rgba(121, 102, 81, 1);
 }
