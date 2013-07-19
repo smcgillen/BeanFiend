@@ -10,7 +10,10 @@
 				<strong>Coffee</strong>: <%= review.coffee %>
 
 			</p>
-			<% if current_user.reviews.include?(review) %>
+			<p>
+				<strong> Written by: <%= link_to review.user.name, user_path(review.user) %></strong>
+			</p>
+			<% if current_user && current_user.reviews.include?(review) %>
 				<div class = "edit_buttons">
 					<%= button_to "Edit Review", edit_review_path(review), method: :get%>
 					<%= button_to "Delete Review", review_path(review), method: :delete%>
