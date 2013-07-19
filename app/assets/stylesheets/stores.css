@@ -1,8 +1,7 @@
 .store {
-	height: 50px;
+	height: 85px;
 	color: rgba(252, 255, 239, .60);
-	background-color: rgba(79, 50, 16, .8);
-	border-radius: 5px;
+	background: rgba(79, 50, 16, .5);
 	margin: 10px 0 0 10px;
 	 -webkit-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
  	 -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
@@ -10,14 +9,27 @@
   	-webkit-transition: margin-left 1s ease-in-out;
   	-moz-transition: margin-left 1s ease-in-out;
   	transition: margin-left 1s ease-in-out;
+  	-webkit-transition: height .5s ease-in-out;
+  	-moz-transition: height .5s ease-in-out;
+  	transition: all .25s ease-in-out;
 }
+
+.store p {
+	text-indent: 30px;
+}
+
+.store:hover {
+	  	height: 90px;
+	  	background: rgba(79, 50, 16, .6);
+}
+
 .store a {
-	color: white;
+	color: #313131;
 	padding: 7px;
 }
 
 .store a:hover {
-	color: white;
+	color: black;
 }
 
 .pagination {

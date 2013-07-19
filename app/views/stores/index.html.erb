@@ -1,35 +1,29 @@
-
-	<%= gmaps4rails(@json) %> <br />
-	<div class = "row-fluid">
-		<div class="span6" style="margin-left: 65px">
-			<%= form_tag('/stores', method: "get") do%>
-				<%= label_tag "Input your address" %>
-				<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY") %>
-				<%= submit_tag "Find Cafes" %>
-			<% end %>
-		</div> 
-		<div class "span6"></div>
+<%= gmaps4rails(@json) %> <br />
+<div class = "row-fluid" style="margin-left: -5px">
+	<div class="span5" style="margin-left: 65px">
+		<%= form_tag('/stores', method: "get") do%>
+			<%= label_tag "Input your address" %>
+			<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY") %>
+			<%= submit_tag "Find Cafes", style: "margin-top: -10px" %>
+		<% end %>
+	</div> 
+	<div class = "span5" style="margin-left: 65px">
+		<%= form_tag('/stores', method: "get") do%>
+			<%= label_tag "Input your address" %>
+			<%= text_field_tag(:address, nil, :placeholder => "This could take a bit....")%>
+			<%= hidden_field_tag "wide_search", true %>
+			<%= submit_tag "Wide Search", style: "margin-top: -10px" %>
+		<% end %>
 	</div>
-	<div class = "row-fluid">
-		<div class = "span7" style="margin-left: 65px">
-			<%= form_tag('/stores', method: "get") do%>
-				<%= label_tag "Input your address" %>
-				<%= text_field_tag(:address, nil, :placeholder => "ex. 10 east 21st St. NYC, NY")%>
-				<%= hidden_field_tag "wide_search", true %>
-				<%= submit_tag "Wide Search" %>
-				<%= "This could take a bit"  %>
-			<% end %>
-		</div>
-		<div class "span6"></div>
-	</div>
+</div>
 
-	<% if @stores.first == nil %>
-	<div class= "row-fluid">
-		<div class ="span6 store" style = "margin-left: 65px">
-			<%= "couldn't find any" %>
-		</div>
+<% if @stores.first == nil %>
+<div class= "row-fluid">
+	<div class ="span6 store" style = "margin-left: 65px">
+		<h2><%= "couldn't find any cafés" %></h2>
 	</div>
-	<% end %>
+</div>
+<% end %>
 
-	<%= render @stores %>
-	<%= will_paginate @stores%>
+<%= render @stores %>
+<%= will_paginate @stores%>

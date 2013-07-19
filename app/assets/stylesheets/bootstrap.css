@@ -254,7 +254,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background: url('brickwall.png')
+  background: url('espresso_machine.jpg') no-repeat fixed;
 }
 
 a {
@@ -646,7 +646,7 @@ a:focus {
 }
 
 .container {
-  background: rgba(255, 242, 216, .7);
+  background: rgba(255, 242, 216, .95);
   border: 2px solid rgba(79, 50, 16, .10);
   border-radius: 5px;
   margin: 30px auto 100px auto;
@@ -654,6 +654,7 @@ a:focus {
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 2px 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 2px 2px 5px;
   *zoom: 1;
+  padding-bottom: 40px;
 }
 
 .container:before,
@@ -2961,7 +2962,7 @@ table th[class*="span"],
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  background-color: rgba(79, 50, 16, .90);
+  background-color:rgba(130, 109, 83, .85);
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
@@ -4415,8 +4416,7 @@ input[type="submit"].btn.btn-mini {
   min-height: 40px;
   padding-right: 20px;
   padding-left: 230px;
-  background-color: rgba(79, 50, 16, .90);
-  border: 1px solid #d4d4d4;
+  background: rgba(130, 109, 83, .85);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;

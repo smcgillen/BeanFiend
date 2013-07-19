@@ -1,6 +1,6 @@
 <div class = "row-fluid">
-	<div class = "span6 store" style = "margin-left: 65px">
-		<%= link_to store.name, store_path(store) %> <br />
+	<div class = "span10 store" style = "margin-left: 65px">
+		<h2><%= link_to store.name, store_path(store) %></h2>
 		<p><%=link_to pluralize("#{store.reviews.count}", 'review'), store_path(store) %> </p>
 	</div>
 	
