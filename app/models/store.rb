@@ -43,7 +43,7 @@ class Store < ActiveRecord::Base
 
 	## adds up to 20 stores when a location is entered ##
 	def self.add_stores(address)
-		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", 4000)
+		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", 1000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name].gsub("'", "")) || store[:name] == "Dunkin' Donuts"
 				new_store = Store.new

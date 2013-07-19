@@ -5,7 +5,7 @@ class StoresController < ApplicationController
 			ip = "208.185.23.206"
 		end
 		@stores = Store.near(Geocoder.coordinates(params[:address]) || Geocoder.coordinates(ip), 1.00).paginate(:page => params[:page], :per_page => 10)
-		if @stores.first == nil || @stores.size < 5 
+		if @stores.first == nil || @stores.size < 40
 			begin
 				Store.add_stores(params[:address] || Geocoder.address(ip))
 			rescue Exception => e
