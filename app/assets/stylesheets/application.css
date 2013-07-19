@@ -13,7 +13,7 @@
  */
 
 .logged_in {
-	margin-top: 10px;
+	margin: 10px 120px 0  0;
 	text-align: right;
 	float: right;
 	color: white;
@@ -37,3 +37,8 @@
 	margin-top: -50px;
 }
 
+.fork {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
