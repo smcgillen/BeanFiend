@@ -3,8 +3,7 @@ search = "coffee -starbucks -dunkin -manger -hagen -daz"
 namespace :defaultuser do 
 	task :addCafes => :environment do 
 
-		address = "229 2nd Ave. NYC, NY"
-
+		address = ENV["ADDRESS"]
 	
 		search_radius = 1000
 		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
