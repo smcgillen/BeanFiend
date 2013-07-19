@@ -1,7 +1,7 @@
 <% if review %>
 	<h3 style="color: black; margin-left: 50px"><%= link_to review.title, review_path(review) %></h3>
 	<div class="review_box">
-			<p><%= review.text %></p>
+			<strong><p><%= review.text %></p></strong>
 			<p>
 				<strong>Noise</strong>: <%= review.noise%> 
 				<strong>People</strong>: <%= review.people %>
