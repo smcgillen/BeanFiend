@@ -11,7 +11,10 @@
 
 			</p>
 			<p>
-				<strong> Written by: <%= link_to review.user.name, user_path(review.user) %></strong>
+				<strong> 
+					Written by: <%= link_to review.user.name, user_path(review.user) %>
+					About <%= link_to review.store.name, store_path(review.store) %>
+				</strong>
 			</p>
 			<% if current_user && current_user.reviews.include?(review) %>
 				<div class = "edit_buttons">

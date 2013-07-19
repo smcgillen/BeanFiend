@@ -1,16 +1,25 @@
 class Store < ActiveRecord::Base
+
+	## relation to reviews ##
+	has_many :reviews
+
+	## enables gmaps mapping through gmaps4rails ##
 	acts_as_gmappable
+
+	## enables geocoding of store coordinates ##
+	reverse_geocoded_by :latitude, :longitude
+	after_validation :reverse_geocode  # auto-fetch address
+
+	## enables pagination ##
+	self.per_page = 10
+
+	## allows gmaps4rails to find the address of a store ##
 	def gmaps4rails_address
 		#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
   		"#{self.address}"
 	end
 
-	self.per_page = 10
-
-	def coordinates
-		return [self.latitude, self.longitude]
-	end
-
+	## defines the content of gmaps popup windows ##
 	def gmaps4rails_infowindow
 		if self.reviews == nil
 			count = 0
@@ -22,17 +31,19 @@ class Store < ActiveRecord::Base
 		<p>#{count} reviews</p>"
   	end
   
-	  def gmaps4rails_title
-	    "#{self.name}"
-	  end
+  	## defines title for gmaps popup windows ##
+	def gmaps4rails_title
+		"#{self.name}"
+	end
 
-	has_many :reviews
+	## returns coordinates for Geocoder ##
+	def coordinates
+		return [self.latitude, self.longitude]
+	end
 
-	reverse_geocoded_by :latitude, :longitude
-	after_validation :reverse_geocode  # auto-fetch address
-
+	## adds up to 20 stores when a location is entered ##
 	def self.add_stores(address)
-		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", 10000)
+		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", 4000)
 		local_stores.each do |store|
 			unless Store.where(latitude: store[:lat], longitude: store[:lng]).first || ENV["EXCLUDE"].include?(store[:name].gsub("'", "")) || store[:name] == "Dunkin' Donuts"
 				new_store = Store.new
@@ -46,6 +57,7 @@ class Store < ActiveRecord::Base
 		end
 	end
 
+	## searches a wider area than add_stores, uses found locations to search for more stores ##
 	def self.wide_search(address)
 		search_radius = 7000
 		local_stores=Gmaps4rails.places_for_address(address, ENV["GOOG_API_KEY"], "coffee", search_radius)
